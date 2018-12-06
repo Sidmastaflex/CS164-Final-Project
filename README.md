@@ -17,3 +17,9 @@ In this program a client can:
 - Manage a friends list
 - Post a status to their timeline
 - View their timeline, which consists of status updates from the client and their friends in chronological order
+
+## Logins
+Logins are currently hard coded and are listed here as Username, Password:
+- sid, bang
+- user, pass
+- man, man
