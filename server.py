@@ -226,7 +226,9 @@ def client_thread(conn):
 			if data == '6': #view timeline
 				for post in clients[usr]['timeline']:
 					conn.send('{} {}: {}'.format(post['time'], post['user'], post['status']) + '\n')
-
+				
+				clients[usr]['newpost'] = 0	
+				
 			if data == '7': #change password
 				conn.send('Old Password: ')
 				oldPswd = conn.recv(1024)
@@ -249,7 +251,6 @@ def client_thread(conn):
 			conn.send('{} new posts on your timeline\n\n'.format(clients[usr]['newpost']))
 	except:
 		print('Client disconnected')
-		print('{} unread messages\n\n'.format(len(clients[usr]['queue'])))
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
